@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchSmurfs } from '../../store/actions';
 
+import Smurf from './Smurf.js';
+
 function Smurfs({ isFetching, smurfData, fetchSmurfs }) {
 
 	useEffect(() => {
@@ -12,6 +14,12 @@ function Smurfs({ isFetching, smurfData, fetchSmurfs }) {
 	return (
 		<div>
 			<h2>Smurf it up</h2>
+			{isFetching && <h2>Fetching Smurf Data...</h2>}
+			{!isFetching && smurfData && (
+				smurfData.map(smurf => {
+					return <Smurf key={smurf.id} smurf={smurf}/>
+				})
+			)}
 		</div>
 	);
 }

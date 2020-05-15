@@ -15,6 +15,7 @@ export const smurfReducer = (state = initialState, action) => {
 		case FETCH_SMURFS_SUCCESS:
 			return {
 				...state,
+				isFetching: false,
 				smurfData: action.payload
 			};
 
