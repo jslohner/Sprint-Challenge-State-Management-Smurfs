@@ -31,3 +31,20 @@ export const postSmurf = smurf => {
 			})
 	};
 };
+
+export const PUT_SMURF_START = 'PUT_SMURF_START';
+export const PUT_SMURF_SUCCESS = 'PUT_SMURF_SUCCESS';
+export const putSmurf = smurf => {
+	return dispatch => {
+		dispatch({ type: PUT_SMURF_START });
+
+		axios.put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+			.then(res => {
+				console.log(res);
+				dispatch({ type: PUT_SMURF_SUCCESS, payload: res.data })
+			})
+			.catch(err => {
+				console.log(err);
+			})
+	};
+};

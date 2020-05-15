@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { fetchSmurfs } from '../../store/actions';
 
 import Smurf from './Smurf.js';
-import SmurfForm from './SmurfForm.js';
+import NewSmurfForm from './NewSmurfForm.js';
+import EditSmurfForm from './EditSmurfForm.js';
 
 function Smurfs({ isFetching, isPosting, smurfData, fetchSmurfs }) {
 
@@ -22,7 +23,8 @@ function Smurfs({ isFetching, isPosting, smurfData, fetchSmurfs }) {
 					return <Smurf key={smurf.id} smurf={smurf}/>
 				})
 			)}
-			<SmurfForm />
+			<NewSmurfForm />
+			<EditSmurfForm />
 		</div>
 	);
 }
