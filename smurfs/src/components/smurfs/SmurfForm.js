@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 
 import { postSmurf } from '../../store/actions';
 
+const initForm = {
+	name: '',
+	age: '',
+	height: ''
+};
+
 function SmurfForm({ postSmurf }) {
-	const [smurfFormInput, setSmurfFormInput] = useState({
-		name: '',
-		age: '',
-		height: ''
-	});
+	const [smurfFormInput, setSmurfFormInput] = useState(initForm);
 
 	const submitHandler = e => {
 		e.preventDefault();
 		postSmurf(smurfFormInput);
+
+		setSmurfFormInput(initForm);
 	};
 
 	const changeHandler = e => {

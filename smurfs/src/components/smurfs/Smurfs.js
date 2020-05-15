@@ -6,7 +6,7 @@ import { fetchSmurfs } from '../../store/actions';
 import Smurf from './Smurf.js';
 import SmurfForm from './SmurfForm.js';
 
-function Smurfs({ isFetching, smurfData, fetchSmurfs }) {
+function Smurfs({ isFetching, isPosting, smurfData, fetchSmurfs }) {
 
 	useEffect(() => {
 		fetchSmurfs();
@@ -16,7 +16,8 @@ function Smurfs({ isFetching, smurfData, fetchSmurfs }) {
 		<div className='smurfs'>
 			<h2>Smurf it up</h2>
 			{isFetching && <h2>Fetching Smurf Data...</h2>}
-			{!isFetching && smurfData && (
+			{isPosting && <h2>Posting New Smurf...</h2>}
+			{!isFetching && !isPosting && smurfData && (
 				smurfData.map(smurf => {
 					return <Smurf key={smurf.id} smurf={smurf}/>
 				})
@@ -29,6 +30,7 @@ function Smurfs({ isFetching, smurfData, fetchSmurfs }) {
 const mapStateToProps = state => {
 	return {
 		isFetching: state.smurfs.isFetching,
+		isPosting: state.smurfs.isPosting,
 		smurfData: state.smurfs.smurfData
 	};
 };
