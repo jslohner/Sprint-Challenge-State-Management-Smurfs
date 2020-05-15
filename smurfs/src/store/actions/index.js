@@ -24,12 +24,10 @@ export const postSmurf = smurf => {
 
 		axios.post('http://localhost:3333/smurfs', smurf)
 			.then(res => {
-				console.log(res);
+				dispatch({ type: POST_SMURF_SUCCESS, payload: res.data })
 			})
 			.catch(err => {
 				console.log(err);
 			})
 	};
 };
-
-// dispatch({ type: POST_SMURF_SUCCESS })

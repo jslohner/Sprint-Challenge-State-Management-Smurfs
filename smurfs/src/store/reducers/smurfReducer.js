@@ -28,7 +28,7 @@ export const smurfReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isPosting: false,
-				smurfData: [...state.smurfData, action.payload]
+				smurfData: action.payload
 			};
 
 		default:

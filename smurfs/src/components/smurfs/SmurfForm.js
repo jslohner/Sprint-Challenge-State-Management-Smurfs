@@ -32,10 +32,4 @@ function SmurfForm({ postSmurf }) {
 	);
 }
 
-const mapStateToProps = state => {
-	return {
-		isPosting: false
-	};
-};
-
-export default connect(mapStateToProps, { postSmurf })(SmurfForm);
+export default connect(null, { postSmurf })(SmurfForm);
