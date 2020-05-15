@@ -1,7 +1,8 @@
-import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS } from '../actions';
+import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, POST_SMURF_START, POST_SMURF_SUCCESS } from '../actions';
 
 export const initialState = {
 	isFetching: false,
+	isPosting: false,
 	smurfData: null
 };
 
@@ -17,6 +18,17 @@ export const smurfReducer = (state = initialState, action) => {
 				...state,
 				isFetching: false,
 				smurfData: action.payload
+			};
+		case POST_SMURF_START:
+			return {
+				...state,
+				isPosting: true
+			};
+		case POST_SMURF_SUCCESS:
+			return {
+				...state,
+				isPosting: false,
+				smurfData: [...state.smurfData, action.payload]
 			};
 
 		default:

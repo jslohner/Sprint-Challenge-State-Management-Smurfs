@@ -1,13 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function Smurf(props) {
+function Smurf({ smurf }) {
 	return (
 		<div className='smurf'>
-			<h3>Name - {props.smurf.name}</h3>
-			<p>Age - {props.smurf.age}</p>
-			<p>Height - {props.smurf.height}</p>
+			<h3>Name - {smurf.name}</h3>
+			<p>Age - {smurf.age}</p>
+			<p>Height - {smurf.height}</p>
 		</div>
 	);
 }
 
-export default Smurf;
+export default connect()(Smurf);
